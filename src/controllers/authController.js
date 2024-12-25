@@ -38,7 +38,12 @@ const Login = async (req, res) => {
         res.locals.user = user;
         return res.redirect('/')
     } catch (error) {
-        res.status(500).json({ error: 'Dang nhap that bai', details: error });
+        res.status(500).json({
+            error: 'Đăng nhập thất bại',
+            message: error.message,
+            stack: error.stack
+        });
+
     }
 }
 const LoginCitizen = async (req, res) => {
