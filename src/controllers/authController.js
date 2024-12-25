@@ -25,8 +25,6 @@ const Login = async (req, res) => {
         const { Username, Password } = req.body;
         const user = await User.findOne({ Username });
         if (!user) {
-            consle.log(user)
-            consle.log(Username)
             return res.status(401).json({ error: 'Xac thuc user that bai' });
         }
         const passwordMatch = await bcrypt.compare(Password, user.Password);
@@ -40,8 +38,7 @@ const Login = async (req, res) => {
         res.locals.user = user;
         return res.redirect('/')
     } catch (error) {
-        console.log(error)
-        res.status(500).json({ error: 'Dang nhap that bai' });
+        res.status(500).json({ error: 'Dang nhap that bai', details: error });
     }
 }
 const LoginCitizen = async (req, res) => {
