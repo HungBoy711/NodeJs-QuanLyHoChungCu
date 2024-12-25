@@ -34,7 +34,7 @@ const Login = async (req, res) => {
         const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET, {
             expiresIn: '7d',
         });
-        res.cookie('jwt', token, { httpOnly: false, secure: true });
+        res.cookie('jwt', token, { httpOnly: true, secure: true });
         res.locals.user = user;
         return res.redirect('/')
     } catch (error) {
