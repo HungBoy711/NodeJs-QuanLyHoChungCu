@@ -25,6 +25,8 @@ const Login = async (req, res) => {
         const { Username, Password } = req.body;
         const user = await User.findOne({ Username });
         if (!user) {
+            consle.log(user)
+            consle.log(Username)
             return res.status(401).json({ error: 'Xac thuc user that bai' });
         }
         const passwordMatch = await bcrypt.compare(Password, user.Password);
@@ -35,6 +37,7 @@ const Login = async (req, res) => {
             expiresIn: '7d',
         });
         res.cookie('jwt', token, { httpOnly: false, secure: true });
+        res.locals.user = user;
         return res.redirect('/')
     } catch (error) {
         console.log(error)
@@ -52,10 +55,6 @@ const LoginCitizen = async (req, res) => {
         if (Password !== citizenAccount.Password) {
             return res.status(401).json({ error: 'Xac thuc mk that bai' });
         }
-        const token = jwt.sign({ citizenAccountId: citizenAccount._id }, process.env.JWT_SECRET, {
-            expiresIn: '7d',
-        });
-        res.cookie('jwt', token, { httpOnly: true, secure: true });
         return res.redirect('/citizenHomePage')
     } catch (error) {
         console.log(error)
