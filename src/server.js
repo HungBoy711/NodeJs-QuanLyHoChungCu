@@ -21,7 +21,6 @@ configViewEngine(app)
 
 app.use('/', routes);
 
-// connection();
 // (async () => {
 //     try {
 //         const url = process.env.DB_HOST_WITH_DRIVER;
@@ -61,7 +60,6 @@ async function run() {
 }
 run().catch(console.dir);
 
-// da thay doi huhu
 
 
 

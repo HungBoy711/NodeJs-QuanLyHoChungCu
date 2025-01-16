@@ -29,13 +29,14 @@
                                                         <thead>
                                                             <tr>
                                                                 <th scope="col" style="display: none;">#</th>
+                                                                <th scope="col" class="col-1-5">Tổng phí</th>
                                                                 <th scope="col" class="col-1">Mã hoá đơn</th>
                                                                 <th scope="col" class="col-1">Số căn hộ</th>
                                                                 <th scope="col">Chủ căn hộ</th>
                                                                 <th scope="col" class="col-1-5">Phí trông xe</th>
                                                                 <th scope="col" class="col-1-5">Phí rác</th>
                                                                 <th scope="col" class="col-1-5">Phí môi trường</th>
-                                                                <th scope="col" class="col-1-5">Tổng phí</th>
+
 
                                                                 <th scope="col" class="text-center">Chức năng</th>
                                                             </tr>
@@ -45,6 +46,9 @@
                                                                 <tr>
                                                                     <td style="display: none;">
                                                                         <%= servicefee._id %>
+                                                                    </td>
+                                                                    <td>
+                                                                        <%= servicefee.TotalFee %> VND
                                                                     </td>
                                                                     <td>
                                                                         <%= servicefee.ServiceFeeID %>
@@ -66,9 +70,7 @@
                                                                         <%= servicefee.EnvironmentalFee %> VND
                                                                     </td>
 
-                                                                    <td>
-                                                                        <%= servicefee.TotalFee %> VND
-                                                                    </td>
+
 
                                                                     <td class="text-center">
                                                                         <a href="/get-DebitPage/<%= servicefee._id %>"

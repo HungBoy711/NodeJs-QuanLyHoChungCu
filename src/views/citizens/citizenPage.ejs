@@ -50,8 +50,8 @@
                                                                     <th scope="col" style="display: none;">#</th>
                                                                     <th scope="col">Mã dân cư</th>
                                                                     <th scope="col">Số căn hộ</th>
-                                                                    <th scope="col">Quan hệ</th>
-                                                                    <th scope="col">Họ và Tên</th>
+                                                                    <th scope="col">Họ và tên</th>
+                                                                    <th scope="col">quan hệ</th>
                                                                     <th scope="col">Ngày sinh</th>
                                                                     <th scope="col">Giới tính</th>
                                                                     <th scope="col">Quê hương</th>
@@ -72,10 +72,10 @@
                                                                             <%= citizen.ApartID %>
                                                                         </td>
                                                                         <td>
-                                                                            <%= citizen.Relationship %>
+                                                                            <%= citizen.Name %>
                                                                         </td>
                                                                         <td>
-                                                                            <%= citizen.Name %>
+                                                                            <%= citizen.relationship %>
                                                                         </td>
                                                                         <td>
                                                                             <%= citizen.BirthDay.toLocaleDateString() %>
@@ -95,8 +95,8 @@
                                                                                 data-id="<%= citizen._id %>"
                                                                                 data-citizenid="<%= citizen.CitizenID %>"
                                                                                 data-apartid="<%= citizen.ApartID %>"
-                                                                                data-relationship="<%= citizen.Relationship %>"
                                                                                 data-name="<%= citizen.Name %>"
+                                                                                data-relationship="<%= citizen.relationship %>"
                                                                                 data-birthday="<%= citizen.BirthDay %>"
                                                                                 data-gender="<%= citizen.Gender %>"
                                                                                 data-hometown="<%= citizen.Hometown %>"

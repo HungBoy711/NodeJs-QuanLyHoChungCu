@@ -8,11 +8,11 @@ const { createAssetPage, createAsset,
 } = require('../controllers/assetController')
 
 router.get('/asset/:AssetCatID', verifyToken, getAssetPage)
-router.get('/create-AssetPage', createAssetPage)
-router.post('/create-Asset', createAsset)
-router.get('/asset/edit-AssetPage/:id', editAssetPage)
-router.post('/edit-Asset', editAsset)
-router.get('/asset/delete-AssetPage/:id', deleteAssetPage)
-router.post('/delete-Asset', deleteAsset)
+router.get('/create-AssetPage', verifyToken, createAssetPage)
+router.post('/create-Asset', verifyToken, createAsset)
+router.get('/asset/edit-AssetPage/:id', verifyToken, editAssetPage)
+router.post('/edit-Asset', verifyToken, editAsset)
+router.get('/asset/delete-AssetPage/:id', verifyToken, deleteAssetPage)
+router.post('/delete-Asset', verifyToken, deleteAsset)
 
 module.exports = router;
